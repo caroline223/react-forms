@@ -1,6 +1,6 @@
 import React from 'react';
-import Form from './Form.js';
-import DisplayData from './DisplayData.js';
+import Form from './Form';
+import DisplayData from './DisplayData';
 
 
 class ParentComponent extends React.Component{
@@ -10,15 +10,9 @@ class ParentComponent extends React.Component{
         lastName: ""
     }
 
-    handleFirstNameChange = event => {
+    handleChange = event => {
         this.setState({
-            firstName: event.target.value
-        })
-    }
-
-    handleLastNameChange = event => {
-        this.setState({
-            lastName: event.target.value
+            [event.target.value]: event.target.value
         })
     }
 
@@ -26,8 +20,7 @@ class ParentComponent extends React.Component{
         return (
             <div>
                 <Form formData={this.state} 
-                handleFirstNameChange={this.handleFirstNameChange}
-                handleLastNameChange={this.handleLastNameChange}    
+                handleChange={this.handleChange}  
                 />
                 <DisplayData formData={this.state} />
             </div>
